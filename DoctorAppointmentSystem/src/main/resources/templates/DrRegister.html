@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	th:replace="~{base::layout(~{::title},~{::section} )}">
+<head>
+<meta charset="UTF-8">
+<title>Register Here</title>
+</head>
+<body>
+	<section class="reg" style="height: 1000px">
+		<div class="container loginBanner" style="height: 150vh">
+			<div class="row">
+				<div class="col-sm-6 offset-3 mt-5">
+					<div class="card  mt-5">
+						<form th:action="@{/doDrRegister}" method="post" th:object="${user}">
+							<div class="form-group mt-3">
+								<div th:if="${session.message}"
+									th:classappend="${session.message.type}"
+									class="alert text-center text-red" role="alert">
+									<p th:text="${session.message.content}"></p>
+									<th:block th:text="${@closeSession.removeSession()}"></th:block>
+
+								</div>
+								<div class="text-center ">
+									<img th:src="@{/img/drprofile.jpeg}" style="border-radius:50%;" width="130px" alt="" />
+									<!-- <i class="fa fa-user-plus" style="font-size: 48px;"></i> -->
+								</div>
+
+								<h1 class="text-center ">Professional information</h1>
+							</div>
+							<div class="form-group ml-3 mr-3 ">
+
+
+								 <input type="hidden"
+									name="name" th:value="${user.name}" class="form-control" id="exampleInputName"
+									placeholder="Enter Name">
+									
+									<input type="hidden"
+									name="role" th:value="${user.role}" class="form-control" id="exampleInputName"
+									placeholder="Enter Name">
+								<!-- th:classappend="${#fields.hasErrors('userName')}? 'is-invalid' : '' " -->
+
+								<!-- <p style="color:#FF78C4; font-size:15px" th:each="e: ${#fields.errors('userName')}" th:text="${e}"></p> -->
+
+
+							</div>
+							<div class="form-group ml-3 mr-3 ">
+
+
+								 <input
+									type="hidden" name="email" th:value="${user.email}" class="form-control"
+									id="exampleInputEmail1" placeholder="Enter email">
+
+								<!-- <p style="color:#FF78C4; font-size:15px" th:each="e : ${#fields.errors('email')}" th:text="${e}"></p> -->
+
+							</div>
+							<div class="form-group ml-3 mr-3 ">
+								 <input
+									type="hidden" th:value="${user.password}" name="password" class="form-control"
+									id="exampleInputPassword1" placeholder="Password">
+								<!-- <p style="color:#FF78C4; font-size:15px" th:each="e : ${#fields.errors('password')}" th:text="${e}"></p> -->
+							</div>
+
+							<!-- 			<div class="form-group ml-3 mr-3 text-white">
+
+
+								<label for="exampleInputRole">User Role:</label> 
+								<input type="text"
+									name="userrole" 
+									class="form-control" 
+									id="exampleInputRole"
+									placeholder="Enter User Role">
+
+							</div> -->
+							<div class="form-row align-items-center form-group ml-3 mr-3 ">
+								<div class="col-auto my-1">
+									<label class="mr-sm-2" for="inlineFormCustomSelect">specialty</label>
+									<select class="custom-select mr-sm-2"
+										id="inlineFormCustomSelect" name="specialty">
+										<option selected>Choose specialty</option>
+										<option  value="Cardiologist">Cardiologist</option>
+										<option value="Dermatologist">Dermatologist</option>
+										<option value="Gastroenterologist">Gastroenterologist</option>
+										<option value="Neurologist">Neurologist</option>
+										<option value="Orthopedic">Orthopedic</option>
+										<option value="Pediatrician">Pediatrician</option>
+										<option value="ENT (Ear, Nose, and Throat) ">ENT (Ear, Nose, and Throat) </option>
+										<option value="Psychiatrist">Psychiatrist</option>
+										<option value="Allergist">Allergist</option>
+										<option value="Radiologist">Radiologist</option>
+										<option value="Dentist">Dentist</option>
+										<!-- <option value="3">Three</option> -->
+									</select>
+								</div>
+								</div>
+
+								<div class="form-group ml-3 mr-3 ">
+
+									<label for="exampleInputAbout">More About Your profession:</label>
+									<textarea class="form-control" rows="5" name="about" th:text="${user.about}"></textarea>
+
+								</div>
+
+								<!-- <div class="form-group ml-3 mr-3 text-white">
+							
+							<label for="exampleInputAbout">Select Profile Picture:</label>
+							<input type="file" name="userImage" class="form-control" />
+							
+							</div> -->
+								<div class="form-check ml-3 mr-3">
+									<input type="checkbox" class="form-check-input" name="check"
+										id="exampleCheck1"> <label
+										class="form-check-label " for="exampleCheck1">Check
+										me out</label>
+								</div>
+								<div class="text-center mb-5">
+									<button type="submit" class="btn bg-success font-weight-bold  ">Submit</button>
+									<button type="reset" class="btn btn-warning font-weight-bold  ">Reset</button>
+								</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>

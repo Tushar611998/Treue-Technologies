@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org" th:replace="~{admin/base::layout(~{::title},~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStore - Home</title>
+    <!-- Include Bootstrap CSS -->
+   
+</head>
+<body>
+<section>
+<div class="container mt-4 ">
+    <div class="jumbotron text-center banner text-white">
+        <h1>All Books</h1>
+        <p>Your one-stop shop for all categories books!</p>
+       
+    </div>
+    
+  </div>
+
+<div class="container mt-4">
+    
+    
+    <div class="row">
+        <!-- ... (Best Seller books cards) ... -->
+    </div>
+    
+   
+    <div id="bookCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active  " style="margin-left:150px">
+                <div class="row">
+                
+                <!-- <div class="col-md-1">
+                <div class="card"></div>
+                </div> -->
+                    <div class="col-md-3 mb-3  " style="height:550px;margin-right:3px;box-sizing:border-box; margin-top:10px" th:each="book : ${books}">
+                        <div class="card" style="height:550px; margin-top:10px">
+                            <img height="250px" style="object-fit: contain;" th:src="@{'/img/' + ${book.image}}" class="card-img-top" alt="Best Seller 1">
+                            <div class="card-body ">
+                            <div class="text-center">
+                                <h5 class="card-title text-center" th:text="${book.book_name}"></h5>
+                                <p th:if="${book.isFeatured}" > (Featured)</p>
+                                 <p th:if="${book.Best_selling}" > (Best Selling)</p>
+                                <i class="fas fa-rupee-sign " style="font-size:20px" th:text="${book.price}"></i> 
+                                  </div>
+                               <div>
+                                
+                               </div>
+                               <div class="text-center text-white">
+                             <a class="btn btn-warning mt-2 text-primary " th:href="@{'/admin/updateBook/'+ ${book.id}}"> Update</a> 
+                              <a class="btn btn-danger mt-2 text-white" th:href="@{'/admin/deleteBook/'+ ${book.id}}">Delete</a>
+                             <a th:href="@{'/admin/setFeatured/' + ${book.id}}" class="btn btn-primary mt-2 text-white"> Featured</a> 
+                             <a  class="btn btn-primary mt-2  text-white" th:href="@{'/admin/setBest/' + ${book.id}}">Best Selling</a> 
+                               
+                             </div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more card columns here -->
+                   
+                    
+                </div>
+            </div>
+            <!-- Add more carousel items with similar row structure -->
+        </div>
+        <a class="carousel-control-prev" href="#bookCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#bookCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        
+        
+    </div>
+    <div class="jumbotron text-center">
+    <!--    ... (jumbotron content) ...-->
+    </div> 
+</div>
+</section>
+
+
+</body>
+</html>

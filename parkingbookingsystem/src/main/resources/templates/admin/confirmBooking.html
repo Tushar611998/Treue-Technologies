@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	th:replace="~{/admin/adbase::layout(~{::title},~{::section} )}">
+<head>
+<meta charset="UTF-8">
+<title>Pricing Menu</title>
+</head>
+<body>
+	<section>
+
+
+ <div class="container">
+
+			<div class="alert text-center" role="alert"
+				th:if="${session.message}" th:classappend="${session.message.type}">
+
+				<p th:text="${session.message.content}"></p>
+
+				<th:block th:text="${@closeSession.removeSession()}"></th:block>
+			</div>
+			<div class="row">
+				<div class="col-md-10 offset-2">
+					<div class="card mt-2">
+						<div class="cardbody ">
+
+							<div class="text-center mt-5">
+								<h1>Please Confirm Your Slot..!!</h1>
+							</div>
+							<div class="mt-2 p-5 text-center">
+							<table class="table">
+								<!-- <thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">First</th>
+										<th scope="col">Last</th>
+										<th scope="col">Handle</th>
+									</tr>
+								</thead> -->
+								<tbody>
+									<tr>
+										<th scope="row" class="text-left">Name:</th>
+										<td class="text-right" th:text="${name}">Mark</td>
+										<!-- <td>Otto</td>
+										<td>@mdo</td> -->
+									</tr>
+									<tr>
+										<th class="text-left" scope="row">Vehical Number:</th>
+										<td class="text-right" th:text="${vname}"></td>
+										<!-- <td>Thornton</td>
+										<td>@fat</td> -->
+									</tr>
+									<tr>
+										<th class="text-left" scope="row">Your slot:</th>
+										<td class="text-right" th:text="${slot}"></td>
+									
+									</tr>
+									<tr>
+										<th class="text-left" scope="row">Booking Duration:</th>
+										<td class="text-right" th:if="${duration==1}" th:text="'2 Hours'"></td>
+										<td class="text-right" th:if="${duration==2}" th:text="'4 Hours'"></td>
+										<td class="text-right" th:if="${duration==3}" th:text="'8 Hours'"></td>
+										<td class="text-right" th:if="${duration==4}" th:text="'Half Day(12 Hours)'"></td>
+										<td class="text-right" th:if="${duration==5}" th:text="'One Day(24 Hours)'"></td>
+									</tr>
+									<tr>
+										<th class="text-left" scope="row">Total Fares:</th>
+										<td class="text-right" th:text="${price+' Rs only'}"></td>
+									
+									</tr>
+									<tr>
+										<th class="text-left" scope="row">Payment Mode:</th>
+										<td class="text-right" >Cash</td>
+									
+									</tr>
+									
+								</tbody>
+							</table>
+							</div>
+							<div class="text-white text-center mb-5">
+							<button class="btn btn-success "><a class="text-white" th:href="@{'/admin/receipt/'+${order.orderId}}">Confirm Booking</a></button>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section> 
+
+</body>
+</html>

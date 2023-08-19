@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org"
+	th:replace="~{base::layout(~{::title},~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Contact Us</title>
+
+</head>
+<body>
+
+	<!-- <img style="object-fit: cover; width:100%; height:100vh; color: linear-gardient(to right, rgba(0,0,0,1), rgba(0,0,0,1))" th:src="@{/img/parking-slot.jpg}" alt="parking img" /> -->
+	<section class="reg pt-5" style="margin-top: 0; padding: 0">
+
+		<div
+			class="contactBanner d-flex mt-5 justify-content-center align-items-center text-white">
+			<h3>We Provide Best Solution For Your Doctor Appointment
+				Scheduling</h3>
+
+		</div>
+		
+		<div class="row justify-content-center mt-5">
+				<div class="col-md-4">
+					<div class="card contact-card">
+						<div class="card-header bg-dark contact-header">
+							<h4 class="mb-0  text-center">Contact Us</h4>
+						</div>
+						<div class="card-body contact-form">
+
+							<form>
+								<div class="form-group">
+									<label for="name">Name</label> <input type="text"
+										class="form-control" id="name" placeholder="Enter your name">
+								</div>
+								<div class="form-group">
+									<label for="email">Email</label> <input type="email"
+										class="form-control" id="email" placeholder="Enter your email">
+								</div>
+								<div class="form-group">
+									<label for="message">Message</label>
+									<textarea class="form-control" id="message" rows="5"
+										placeholder="Enter your message"></textarea>
+								</div>
+								<button type="submit" class="btn btn-primary btn-block">Submit</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div class="container mt-5">
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="card" style="height:190px">
+						<div class="card-body">
+							<h4>Feel free to reach out us and reduce your suffering from
+								waiting for doctor.</h4>
+							<h6>Email: support@easypark.com</h6>
+							<h6>Phone: +1 (800) 123-4567</h6>
+							<h6>Address: abc road def chowk xyz colony pqr city lmn Country</h6>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card" style="height:190px">
+						<div class="card-body">
+							<h4 class="">Operating Hours:</h4>
+							
+							<h6>Monday to Friday: 8:00 AM - 8:00 PM (EST)</h6>
+							<h6>Saturday and Sunday: 10:00 AM - 6:00 PM (EST)</h6>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+		
+
+
+
+
+
+			<br /> <br />
+
+
+
+			<p class="text-white">Our goal is to redefine healthcare access through HealthZone's
+				online scheduling system, providing patients with seamless
+				appointment management and immediate confirmations, enhancing
+				convenience and well-being.</p>
+
+
+		</div>
+
+	</section>
+</body>
+</html>

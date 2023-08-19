@@ -1,0 +1,86 @@
+
+
+.banner{
+	background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("../img/dr.png");
+	background-size:cover;
+	height:92vh;
+	
+}
+.reg{
+	background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../img/header.jpeg");
+	background-size:cover;
+	
+}
+
+.header{
+	background-image:  url("../img/bann.jpeg");
+	background-size:cover;
+	
+}
+body{
+	background:#e2e2e2;
+}
+
+.login{
+	background-image:  url("../img/doctorbanner.png");
+	background-size:cover;
+	height:80vh;
+	border:none;
+}
+.card{
+	border:none;
+}
+
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        
+        .calendar {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 10px;
+}
+
+.day-header {
+	text-align: center;
+	font-weight: bold;
+}
+
+.day {
+	border: 1px solid #ccc;
+	padding: 10px;
+	text-align: center;
+	cursor: pointer; /* Add cursor style to indicate clickability */
+}
+
+.disabled-day {
+	background-color: #f0f0f0;
+	/* Add a visual indicator for disabled days */
+	cursor: not-allowed; /* Change cursor to indicate non-selectability */
+	pointer-events: none;
+}
+ .slot-card {
+            cursor: pointer; /* Add cursor style to indicate clickability */
+        }
+        .booked {
+            background-color: #f0f0f0; /* Add visual indicator for booked slots */
+            pointer-events: none; /* Disable click events on booked slots */
+        }

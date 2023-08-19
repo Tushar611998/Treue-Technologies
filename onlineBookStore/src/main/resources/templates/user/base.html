@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org"
+	th:fragment="layout(title,content)">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" th:href="@{/css/mycss.css}">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<!-- Include Bootstrap JS and jQuery -->
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</head>
+<body>
+
+
+	<!-- NavBar -->
+	<nav class="navbar navbar-expand-lg navbar sticky-top navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">BookParadise</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active"><a class="nav-link"
+					th:href="@{/home}">Home</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/allBooks}">Books</a></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Categories </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" th:href="@{/fantasy/Fantasy}">Fantasy</a> 
+						<a class="dropdown-item" th:href="@{/fantasy/Horror}">Horror</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" th:href="@{/fantasy/Historical}">Historical</a>
+						<a class="dropdown-item" th:href="@{/fantasy/Sci-Fi}">Sci-Fi</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" th:href="@{/fantasy/Biography}">Biography</a>
+						<a class="dropdown-item" th:href="@{/fantasy/Romance}">Romance</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" th:href="@{/fantasy/Cooking}">Cooking</a>
+						<a class="dropdown-item" th:href="@{/fantasy/Mystery}">Mystery</a>
+						
+					</div></li>
+					<li><i class="fas fa-user-circle mt-2 text-white"style="font-size:25px"></i></li>
+					<li class="nav-item dropdown">
+					
+					<a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false" th:utext="${user.name}"> </a>
+					<div class="dropdown-menu " aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" th:href="@{/user/myOrders}">My Orders</a> 
+						
+						
+						
+						<a class="dropdown-item" th:href="@{/user/change-password}">Change Password</a>
+						<a class="dropdown-item" th:href="@{/logout}">Logout</a>
+					</div></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/cart}" ><i class="fa fa-shopping-cart" style="font-size:20px"></i></a></li>	
+					
+				<li class="nav-item"><a class="nav-link" th:href="@{/about}">About
+						Us</a></li>
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/contactUs}">Contact</a></li>
+					
+					
+				
+				
+			</ul>
+		</div>
+	</nav>
+
+	<div th:replace="${content}"></div>
+
+	
+</body>
+</html>
+
+

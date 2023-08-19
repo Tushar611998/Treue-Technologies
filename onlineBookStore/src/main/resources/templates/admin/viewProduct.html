@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org"
+	th:replace="~{admin/base::layout(~{::title},~{::section})}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Details - Practice</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+/* Custom CSS styles */
+
+/* Add other styles here */
+</style>
+</head>
+<body>
+<section>
+		<div class="product-container">
+			<div class="product-image-container">
+				<img class="product-image pl-5" th:src="@{'/img/' + ${book.image}}"
+					alt="Product Image">
+			</div>
+			<div class="product-details-container">
+				<div class="">
+					<h1 class="card-title " th:text="${book.book_name}"></h1>
+					<i class="fas fa-rupee-sign" style="font-size: 20px"
+						th:text="${book.price}"></i>
+				</div>
+				<p class="rating-stars">&#9733; &#9733; &#9733; &#9733; &#9734;</p>
+				<p class="reviews">(45 Reviews)</p>
+				<p class="product-description" th:utext="${book.description}"></p>
+				<ul class="features-list">
+					<li>The best way to utilize your time is by reading this book</li>
+					<li>You will definitely lost into the magic world </li>
+					<li>The overwhelming fantasy world.</li>
+				</ul>
+				<button class="btn btn-warning">Add to Cart</button>
+				<button class="btn btn-success" th:href="@{'/admin/buyNow/' ${order.id}}">Buy Now</button>
+				<!-- Add Best Offers dropdown here -->
+				<div class="dropdown mt-3">
+					<button
+						class="btn btn-light text-left  font-weight-bold form-control dropdown-toggle"
+						type="button" style="color: green" id="dropdownMenuButton"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Click
+						here to get exciting offers to save more and buy new book..!!!</button>
+					<div style="z-index: 100">
+						<div class="dropdown-menu form-control"
+							aria-labelledby="dropdownMenuButton">
+
+							<a class="dropdown-item" href="#" style="border: 1px solid grey">10%
+								Instant discount with HDFC bank cards</a> <a
+								class="dropdown-item bg-white" style="border: 1px solid grey"
+								href="#">No cost EMI starting from 50Rs/month</a> <a
+								class="dropdown-item bg-white" style="border: 1px solid grey"
+								href="#">Exchange offer save up to 30% on your order</a>
+						</div>
+					</div>
+				</div>
+				<div class="container mt-5">
+					<h2>Check Delivery at your Pin code</h2>
+					<form th:action="@{'/check-delivery/' + ${book.id}}" method="post">
+						<div class="form-group">
+							<label for="pincode">Enter Pincode:</label> <input type="text"
+								id="pincode" name="pincode" class="form-control" required />
+						</div>
+						<button type="submit" class="btn btn-primary">Check
+							Delivery</button>
+					</form>
+					<div th:if="${pincode != null}">
+						<p th:if="${isDeliverable}" class="text-success">
+							Delivery is available at pincode <span th:text="${pincode}"></span>
+						</p>
+						<p th:unless="${isDeliverable}" class="text-danger">
+							Delivery is not available at pincode <span th:text="${pincode}"></span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

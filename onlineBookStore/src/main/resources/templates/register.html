@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	th:replace="~{base::layout(~{::title},~{::section} )}">
+<head>
+<meta charset="UTF-8">
+<title>Register Here</title>
+</head>
+<body>
+	<section class="bg-s" style="height: 1000px">
+		<div class="container " style="height: 150vh">
+			<div class="row">
+				<div class="col-sm-6 offset-3 mt-1">
+					<div class="card login-card  mt-5">
+					 <div class="card-header banner login-header">
+                 <div class="container text-center mt-3 mb-3">
+            <i class="fa fa-user-plus"style="font-size:57px"></i>
+            </div>
+                    
+                    <div class="mb-3">
+                    <h4 class="mb-0 ml-2 text-center">Signup to BookParadise</h4>
+                    </div>
+                </div>
+                
+                <div class="card-body">
+						<form th:action="@{/doRegister}" method="post" th:object="${user}">
+							<div class="form-group">
+								<div th:if="${session.message}"
+									th:classappend="${session.message.type}"
+									class="alert text-center text-red" role="alert">
+									<p th:text="${session.message.content}"></p>
+									<th:block th:text="${@closeSession.removeSession()}"></th:block>
+
+								</div>
+							
+							</div>
+							<div class="form-group ml-3 mr-3">
+
+
+								<label for="exampleInputName">Name:</label> <input type="text"
+									name="name" class="form-control" id="exampleInputName"
+									placeholder="Enter Name">
+								<!-- th:classappend="${#fields.hasErrors('userName')}? 'is-invalid' : '' " -->
+
+								<!-- <p style="color:#FF78C4; font-size:15px" th:each="e: ${#fields.errors('userName')}" th:text="${e}"></p> -->
+
+
+							</div>
+							<div class="form-group ml-3 mr-3 ">
+
+
+								<label for="exampleInputcontact">Contact Number:</label> <input type="number"
+									name="phone" class="form-control" id="exampleInputcontact"
+									placeholder="Enter Contact Number">
+								<!-- th:classappend="${#fields.hasErrors('userName')}? 'is-invalid' : '' " -->
+
+								<!-- <p style="color:#FF78C4; font-size:15px" th:each="e: ${#fields.errors('userName')}" th:text="${e}"></p> -->
+
+
+							</div>
+							<div class="form-group ml-3 mr-3 ">
+
+
+								<label for="exampleInputEmail1">Email address:</label> <input
+									type="email" name="email" class="form-control"
+									id="exampleInputEmail1" placeholder="Enter email">
+
+								<!-- <p style="color:#FF78C4; font-size:15px" th:each="e : ${#fields.errors('email')}" th:text="${e}"></p> -->
+
+							</div>
+							<div class="form-group ml-3 mr-3">
+								<label for="exampleInputPassword1">Password:</label> <input
+									type="password" name="password" class="form-control"
+									id="exampleInputPassword1" placeholder="Password">
+								<!-- <p style="color:#FF78C4; font-size:15px" th:each="e : ${#fields.errors('password')}" th:text="${e}"></p> -->
+							</div>
+
+							<!-- 			<div class="form-group ml-3 mr-3 text-white">
+
+
+								<label for="exampleInputRole">User Role:</label> 
+								<input type="text"
+									name="userrole" 
+									class="form-control" 
+									id="exampleInputRole"
+									placeholder="Enter User Role">
+
+							</div> -->
+							<div class="form-row align-items-center form-group ml-3 mr-3 ">
+								<div class="col-auto my-1">
+									<label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label>
+									<select class="custom-select mr-sm-2"
+										id="inlineFormCustomSelect" name="role">
+										<option selected>Choose Role</option>
+										<option  value="ROLE_ADMIN">ADMIN</option>
+										<option value="ROLE_USER">USER</option>
+										<!-- <option value="3">Three</option> -->
+									</select>
+								</div>
+								</div>
+
+								<div class="form-group ml-3 mr-3 ">
+
+									<label for="exampleInputAbout">About Yourself:</label>
+									<textarea class="form-control" rows="5" name="about"></textarea>
+
+								</div>
+
+								<!-- <div class="form-group ml-3 mr-3 text-white">
+							
+							<label for="exampleInputAbout">Select Profile Picture:</label>
+							<input type="file" name="userImage" class="form-control" />
+							
+							</div> -->
+								<div class="form-check ml-3 mr-3">
+									<input type="checkbox" class="form-check-input" name="check"
+										id="exampleCheck1"> <label
+										class="form-check-label" for="exampleCheck1">Check
+										me out</label>
+								</div>
+								<div class="text-center mb-5 card-header login-header">
+									<button type="submit" class="btn bg-success font-weight-bold  ">Submit</button>
+									<button type="reset" class="btn btn-warning font-weight-bold  ">Reset</button>
+								</div>
+						</form>
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+</body>
+</html>

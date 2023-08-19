@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	th:replace="~{/admin/adbase::layout(~{::title},~{::section} )}">
+<head>
+<meta charset="UTF-8">
+<title>Pricing Menu</title>
+</head>
+<body>
+	<section>
+	
+	
+	
+	<div class="container">
+		<div class="row slot">
+		<div class="ml-5 pl-5">
+				<label  for="" >Total Slots:</label>
+				<h3 class="text-primary" th:text="${count}"></h3>
+				
+				</div>
+				<div class="pl-5">
+				
+				<span>Booked Slots:</span>
+				<h3 class="text-danger" th:text="${bookedSlots}"></h3>
+				</div>
+				<div class="pl-5">
+				
+				<span>Available Slots:</span>
+				<h3 class="text-success" th:text="${slotavailable}"></h3>
+				</div>
+			<div class="col-md-12 offset-1">
+				<div class="card mt-2">
+				<div class="cardbody slot">
+				
+				
+					<div class="row mt-3">
+						<div class="col-md-3 ">
+							<div th:each="slots: ${slots}" th:classappend="${slots.isAvailable}?'bg-success':''" class="card booking">
+								<div    class="cardbody  ">
+								<h3 th:if="${slots.isAvailable}" th:text="${slots.name}"></h3>
+								<img width="150px" height="80px" th:unless="${slots.isAvailable}" th:src="@{/img/parkedcar.png}" alt="car" />
+								
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 ">
+							<div th:each="slots: ${slots1}" th:classappend="${slots.isAvailable}?'bg-success':''" class="card booking">
+								<div   class="cardbody ">
+								<h3 th:if="${slots.isAvailable}" th:text="${slots.name}"></h3>
+								<img width="150px" height="80px" th:unless="${slots.isAvailable}" th:src="@{/img/parkedcar.png}" alt="car" />
+								
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div th:each="slots: ${slots2}" th:classappend="${slots.isAvailable}?'bg-success':''" class="card booking">
+								<div  class="cardbody">
+								<h3 th:if="${slots.isAvailable}" th:text="${slots.name}"></h3>
+								<img width="150px" height="80px" th:unless="${slots.isAvailable}" th:src="@{/img/parkedcar.png}" alt="car" />
+								
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3" style="height:150px">
+							<div th:each="slots: ${slots3}" th:classappend="${slots.isAvailable}?'bg-success':''" class="card booking">
+								<div   class="cardbody ">
+								<h3 th:if="${slots.isAvailable}" th:text="${slots.name}"></h3>
+								<img width="150px" height="80px" th:unless="${slots.isAvailable}" th:src="@{/img/parkedcar.png}" alt="car" />
+								
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	</section>
+
+</body>
+</html>

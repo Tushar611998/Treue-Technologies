@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	th:replace="~{normal/adbase::layout(~{::title},~{::section} )}">
+<head>
+<meta charset="UTF-8">
+<title>Book Slot</title>
+
+</head>
+<body>
+	<section class="back">
+
+
+
+		<div class="container back ">
+
+
+			<div class="row ">
+				<div class="col-md-10 offset-2 mt-5">
+					<div class="card mt-6 ">
+						<div class="cardbody ">
+							<div class="alert text-center" role="alert"
+								th:if="${session.message}"
+								th:classappend="${session.message.type}">
+
+								<p th:text="${session.message.content}"></p>
+
+								<th:block th:text="${@closeSession.removeSession()}"></th:block>
+							</div>
+
+							<div class="text-center mt-5">
+								<h1>Book Your Slot</h1>
+							</div>
+							
+							<form class="p-5" method="post"
+								th:action="@{/user/confirmBooking}">
+								
+							<div class="container  form-group">
+							<p> Note: Each and evry field must be filled..!!</p>
+							</div>
+								
+								<div class="form-group">
+									<label for="exampleInputEmail1">Name:</label> <input
+										type="text" class="form-control" id="exampleInputEmail1"
+										name="clientName" aria-describedby="emailHelp"
+										placeholder="Enter Name">
+
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword1">Vehical Number:</label> <input
+										type="text" class="form-control" id="exampleInputVehical1"
+										name="vNumber" placeholder="AB12XY3456">
+								</div>
+
+								<!-- Date Picker -->
+								<div class="form-group row">
+									<div class="col">
+
+										<select class="custom-select mr-sm-2 required form-control"
+											name="availslot" id="inlineFormCustomSelect">
+											<option selected>All Available Slots:</option>
+											<option th:each="slots: ${availableSlots}"
+												th:text="${slots.name}"></option>
+										</select>
+
+
+									</div>
+									<div class="col">
+										<select class="custom-select mr-sm-2 required!important form-control"
+											name="duration" id="inlineFormCustomSelect">
+											<option selected>Duration</option>
+											<option value="1">2 Hrs</option>
+											<option value="2">4 Hrs</option>
+											<option value="3">8 Hrs</option>
+											<option value="4">Half Day (12 Hrs)</option>
+											<option value="5">One Day (24 Hrs)</option>
+										</select>
+
+
+									</div>
+
+								</div>
+								<div class="form-group form-check">
+									<input type="checkbox" class="form-check-input" name="checked"
+										id="exampleCheck1"> <label class="form-check-label"
+										for="exampleCheck1">Check me out</label>
+								</div>
+								<div class="text-center">
+									<button type="submit" class="btn btn-primary">Book Now</button>
+								</div>
+
+							</form>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+
+</body>
+</html>

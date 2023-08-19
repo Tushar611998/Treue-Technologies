@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" th:replace="~{normal/base::layout(~{::title},~{::section} )}">
+<head>
+    <!-- Include your Bootstrap and CSS links here -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title></title>
+</head>
+<body>
+<section>
+  <div class="text-center header d-flex justify-content-center align-items-center" style="height:55vh;"></div>
+  <div class="text-center mt-5"><h1>Select Doctor To Book Appointment</h1></div>
+    <div class="container ">
+   <div  th:if="${session.message}" th:classappend="${session.message.type}">
+			
+			<p th:text="${session.message.content}"></p>
+			<th:block th:text="${@closeSession.removeSession()}"></th:block>
+			
+			</div>
+        <div class="row">
+        	
+            <div class="col-md-3 mb-4 mt-5" th:each="doctor : ${doctors}">
+                <div class="card" style="height:250px">
+                    <div class="card-header" >
+                        <h3 class="mb-0" th:text="${doctor.specialty}"></h3>
+                    </div>
+                    <div class="card-body" >
+                        <h5 class="card-title" th:text="${doctor.name}"></h5>
+                        <p class="card-text" th:text="${doctor.about}"></p>
+                        
+                    </div>
+                    <div class="card-footer bg-white"><a th:href="@{'/user/calendar/' +${doctor.id}}" class="btn  btn-primary">Book Appointment</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+</body>
+</html>

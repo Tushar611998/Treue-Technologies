@@ -1,0 +1,70 @@
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    Include your Bootstrap and CSS links here
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Doctor Appointment Scheduling</h1>
+        <h2 class="text-center mb-3"  th:text="${#temporals.format(currentMonth, 'MM dd yy')}"></h2>
+        <div class="row">
+            <div th:each="day : ${allDaysInMonth}" class="col-md-3 mb-3">
+                <div class="card day-card">
+                    <a th:href="@{/appointments/{date}(date=${#temporals.format(day, 'yyyy-MM-dd')})}">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${day.dayOfMonth}"></h5>
+                            Additional content here
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+ -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	th:replace="~{normal/base::layout(~{::title},~{::section} )}">
+<head>
+
+<title>Calendar</title>
+<!-- Include your Bootstrap and CSS links here -->
+
+
+</head>
+<body>
+<section style="background:white!important;height:92vh;" >
+<div class="mt-0"><h1 class="text-center d-flex justify-content-center align-items-center text-white" style="background:teal;height:20vh">Select Desired Date</h1></div>
+	<div class="container mt-2">
+		
+		<h2 class="text-center mb-5">
+			<span th:text="${#temporals.format(currentMonth, 'MMMM')}"></span> <span>&nbsp;</span>
+			<span th:text="${currentMonth.year}"></span>
+		</h2>
+		
+		<div class="calendar">
+			<div class="day-header">Sunday</div>
+			<div class="day-header">Monday</div>
+			<div class="day-header">Tuesday</div>
+			<div class="day-header">Wednesday</div>
+			<div class="day-header">Thursday</div>
+			<div class="day-header">Friday</div>
+			<div class="day-header">Saturday</div>
+
+			<th:block th:each="day : ${allDaysInMonth}">
+				<a style="text-decoration:none;font-size:20px"
+					th:href="@{/user/appointments/{date}/{doctorId}(date=${#temporals.format(day, 'yyyy-MM-dd')},doctorId=${doctorId})}"
+					  th:classappend="${day.isBefore(currentDate) ? 'disabled-day disabled' : ''}">
+					<div class="day" th:text="${day.dayOfMonth}"></div> <!-- Here, you can include links to appointments or other content -->
+				</a>
+			</th:block>
+		</div>
+	</div>
+	</section>
+</body>
+
+</html>
+
+

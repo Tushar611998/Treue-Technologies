@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	th:replace="~{normal/base::layout(~{::title},~{::section} )}">
+<head>
+<title>Book Your Slot</title>
+   
+</head>
+<body>
+<section class="reg" style="height:100vh">
+
+    <div class="">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h1 class="text-center mb-0">Book Appointment</h1>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/user/submit-booking}" method="post" th:object="${appointment}">
+                           
+                            <input type="hidden" name="doctorId" th:value="${doctorId}" />
+                            
+                            <div class="form-group">
+                               
+                                <input type="hidden" class="form-control" id="name" name="date" th:value="${selectedDate}" required />
+                                <input type="hidden" class="form-control" id="name" name="time" th:value="${selectedTime}" required />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactNumber">Contact Number</label>
+                                <input type="tel" class="form-control" id="contactNumber" name="phone" required />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" class="form-control" id="age" name="age" required />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="male" name="gender" value="male" required />
+                                    <label class="form-check-label" for="male">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="female" name="gender" value="female" />
+                                    <label class="form-check-label" for="female">Female</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" id="other" name="gender" value="other" />
+                                    <label class="form-check-label" for="other">Other</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="about">Tell us more about your Disease</label>
+                                <textarea class="form-control" id="about" name="about" rows="3"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">Book Slot</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+</body>
+</html>

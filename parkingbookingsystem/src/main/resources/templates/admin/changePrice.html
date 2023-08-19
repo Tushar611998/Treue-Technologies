@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	th:replace="~{/admin/adbase::layout(~{::title},~{::section} )}">
+<head>
+<meta charset="UTF-8">
+<title>Pricing Menu</title>
+</head>
+<body>
+	<section>
+	
+	
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 offset-1">
+				<div class="card mt-2">
+				<div class="cardbody price">
+					
+					
+					<form th:action="@{/admin/dochange}" method="post">
+					<span>Price - </span>
+					<span><input style="font-size:25px; display:inline; width:150px;padding:10px;box-sizing:border-box" type="text" name="newPrice" placeholder="New Price" /></span>
+					<i class="fa fa-rupee" style="font-size:35px;padding:5px"></i>
+					<button  type="submit" class="btn btn-success ml-5 p-3 ">Change</button>
+					</form>
+					
+					<span>Total Slots - </span><span  th:text="${count}"></span>
+					
+					<button style="width:130px;margin-left:145px" class="btn btn-success  p-3 mt-3"><a class="text-white" th:href="@{/admin/addslot}">Add Slot</a></button>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	</section>
+
+</body>
+</html>

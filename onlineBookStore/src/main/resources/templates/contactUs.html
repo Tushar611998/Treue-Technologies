@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org"
+	th:replace="~{base::layout(~{::title},~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Contact Us</title>
+
+</head>
+<body>
+
+
+
+
+	<section>
+		<div class="jumbotron text-center banner text-white">
+			<h1>We are happy serve you</h1>
+			<p>Your one-stop shop for all categories books!</p>
+			<p>Please feel free contact us for any inquiries or queries.</p>
+
+		</div>
+		<div class="mt-5 container">
+			<h4>Have a question or need assistance with your orders? We're
+				here to help! Feel free to reach out to our friendly customer
+				support team for any inquiries or support you may need. Your
+				satisfaction is our top priority, and we're committed to making your
+				Reading experience with BookParadise a seamless and enjoyable one.</h4>
+		</div>
+		<div class="container contact-container">
+
+			<div class="row justify-content-center">
+				<div class="col-md-6">
+					<div class="card contact-card">
+						<div class="card-header bg-dark contact-header">
+							<h4 class="mb-0  text-center">Contact Us</h4>
+						</div>
+						<div class="card-body contact-form">
+
+							<form>
+								<div class="form-group">
+									<label for="name">Name</label> <input type="text"
+										class="form-control" id="name" placeholder="Enter your name">
+								</div>
+								<div class="form-group">
+									<label for="email">Email</label> <input type="email"
+										class="form-control" id="email" placeholder="Enter your email">
+								</div>
+								<div class="form-group">
+									<label for="message">Message</label>
+									<textarea class="form-control" id="message" rows="5"
+										placeholder="Enter your message"></textarea>
+								</div>
+								<button type="submit" class="btn btn-primary btn-block">Submit</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row mt-5">
+				<div class="col-md-6">
+					<h5>About BookStore</h5>
+					<p>Indulge your senses in BookParadise, where stories come
+						alive. Discover curated gems across genres, from thrilling
+						mysteries to heartwarming tales. Immerse yourself today in a
+						literary haven that transcends boundaries. Unveil new horizons
+						with every page turned. Welcome to a realm where reading knows no
+						limits..</p>
+					<p>Contact us for any book recommendations, inquiries, or
+						general information about our store.</p>
+				</div>
+				<div class="col-md-6">
+					<h5>Contact Information</h5>
+					<ul class="list-unstyled">
+						<li><i class="fas fa-map-marker-alt"></i> 123 Main Street,
+							City, Country</li>
+						<li><i class="fas fa-phone"></i> +123-456-7890</li>
+						<li><i class="fas fa-envelope"></i> info@bookstore.com</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	th:replace="~{user/base::layout(~{::title},~{::section} )}">
+<head>
+<meta charset="UTF-8">
+<title>Pricing Menu</title>
+</head>
+<body>
+	<section>
+
+
+ <div class="container">
+
+			<div class="alert text-center" role="alert"
+				th:if="${session.message}" th:classappend="${session.message.type}">
+
+				<p th:text="${session.message.content}"></p>
+
+				<th:block th:text="${@closeSession.removeSession()}"></th:block>
+			</div>
+			<div class="row">
+				<div class="col-md-8 offset-2 text-white">
+					<div class="card mt-2 order">
+						<div class="cardbody ">
+
+							<div class="text-center mt-5 mb-5">
+								<h3>Provide valid details adn confirm order</h3>
+							</div>
+							
+							<div class="mt-3 ml-5 mr-5">
+								<form th:action="@{/user/placeOrder}" method="post">
+								
+								<label class="form-group">Delivery Address:</label>
+								<textarea class="form-group form-control" placeholder="Write your delivery address" name="add"  rows="3"></textarea>
+								<label class="form-group">Contact Details:</label>
+								<input type="text" name="phone" placeholder="Write your contact number here" class="form-group form-control" />
+								<input type="hidden" name="bookId" th:value="${book.id}" />
+								
+							
+							<div class=" p-5 text-center text-white">
+							<div class="container text-center p-3 ">
+							<img th:src="@{'/img/'+${book.image}}"class="imgborder" width="150px" alt="" />
+							</div>
+							<table class="table text-white" style="font-size:18px">
+								<!-- <thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">First</th>
+										<th scope="col">Last</th>
+										<th scope="col">Handle</th>
+									</tr>
+								</thead> -->
+								<tbody>
+									<tr>
+										<th scope="row" class="text-left">Name:</th>
+										<td class="text-right" th:text="${user.name}" >Mark</td>
+										<!-- <td>Otto</td>
+										<td>@mdo</td> -->
+									</tr>
+									
+									<tr>
+										<th class="text-left" scope="row">Email Id:</th>
+										<td class="text-right" th:text="${user.email}"></td>
+										<!-- <td>Thornton</td>
+										<td>@fat</td> -->
+									</tr>
+									<tr>
+										<th class="text-left" scope="row">Book:</th>
+										<td class="text-right" th:text="${book.book_name}"></td>
+									
+									</tr>
+									<tr>
+										
+									</tr>
+									<tr>
+										<th class="text-left" scope="row">Total Fares:</th>
+										<td class="text-right" ><i class="fas fa-rupee-sign" style="font-size: 20px"
+						th:text="${book.price}"></i></td>
+									
+									</tr>
+									<tr>
+										<th class="text-left" scope="row">Payment Mode:</th>
+										<td class="text-right" >Cash</td>
+									
+									</tr>
+									
+								</tbody>
+							</table>
+							</div>
+							<div class="text-white text-center mb-5">
+							<button type="submit" class="btn btn-success text-white" >Book Now</button>
+							</div>
+							
+							
+							
+							</form>
+							</div>
+							
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section> 
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org" th:replace="~{admin/base::layout(~{::title},~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Book</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<section class="addbook mt-0 p-5">
+    <div class="container  mt-5 ">
+        
+        <div class="card col-md-6 offset-3 ">
+            <div class="card-body">
+            <div class="container text-center">
+            
+            <img th:src="@{/img/handbook.avif}" width="130px" alt=" book" />
+            <h2>Update Book</h2>
+            </div>
+            <div th:if="${session.message}"
+				th:classappend="${session.message.type}"
+				class="alert text-center text-red" role="alert">
+				<p th:text="${session.message.content}"></p>
+				<th:block th:text="${@closeSession.removeSession()}"></th:block>
+
+			</div>
+                <form th:action="@{/admin/doUpdate}" method="post" th:object="${book}" enctype="multipart/form-data">
+                    <div class="form-group">
+                    
+                    	<input type="hidden" th:value="${book.id}" name="oldId" />
+                        <label for="bookName">Book Name:</label>
+                        <input type="text" th:value="${book.book_name}" id="bookName" name="book_name" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author:</label>
+                        <input type="text" th:value="${book.author}" id="author" name="author" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Options:</label>
+                        <!-- <div class="form-check form-check-inline">
+                            <input type="checkbox" id="bestSelling" name="bestSelling" class="form-check-input" />
+                            <label class="form-check-label" for="bestSelling">Best Selling</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" id="isFeatured" name="isFeatured" class="form-check-input" />
+                            <label class="form-check-label" for="isFeatured">Featured</label>
+                        </div> -->
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" id="isAvailable" name="isAvailable" class="form-check-input" checked  />
+                            <label class="form-check-label" for="isAvailable">Available</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price:</label>
+                        <input type="number" th:value="${book.price}" id="price" name="price" class="form-control" step="0.01" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" th:utext="${book.description}" class="form-control" style="height: 200px;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Image:</label>
+                        <input type="file" id="image" name="myimage" class="form-control-file" accept="image/*" />
+                        <span th:text="${book.image}"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select id="category" th:value="${book.category}" name="category" class="form-control">
+                            <option th:value="${book.category}" th:text="${book.category}"></option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="non-fiction">Horror</option>
+                            <option value="Historical">Historical </option>
+                            <option value="Sci-Fi">Sci-Fi</option>
+                            <option value="Biography">Biography</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Cooking">Cooking</option>
+                            <option value="Mystery">Mystery</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                      
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Book</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#description',
+            height: 300, // Set the height of the editor
+            plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+            toolbar_mode: 'floating',
+        });
+    </script>
+    </section>
+
+  
+</body>
+</html>

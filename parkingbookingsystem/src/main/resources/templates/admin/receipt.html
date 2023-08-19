@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	th:replace="~{/admin/adbase::layout(~{::title},~{::section} )}">
+<head>
+<meta charset="UTF-8">
+<title>Pricing Menu</title>
+</head>
+<body>
+	<section>
+
+
+ <div class="container">
+
+			<div class="alert text-center" role="alert"
+				th:if="${session.message}" th:classappend="${session.message.type}">
+
+				<p th:text="${session.message.content}"></p>
+
+				<th:block th:text="${@closeSession.removeSession()}"></th:block>
+			</div>
+			<div class="row">
+				<div class="col-md-10 offset-2">
+					<div class="card mt-2" style="height:750px">
+						<div class="cardbody ">
+
+							<div class="text-center mt-5">
+								<h1 class="text-success mb-5">Thank you for booking your slot</h1>
+							</div>
+							
+							<table class="table ml-2 mr-2 text-center">
+								<thead>
+									<tr>
+										<th scope="col">Transaction Id</th>
+										<th scope="col">Booking Date and Time</th>
+										<th scope="col">Booking duration</th>
+										<th scope="col">Total fare</th>
+										<th scope="col">payment status</th>
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr >
+										<th scope="row" th:text="${order.Transactional_id}"></th>
+										<td th:text="${#temporals.format(order.dateTime, 'yyyy-MM-dd HH:mm:ss')}" ></td>
+										<td th:text="${order.duration+'Hrs'}"></td>
+										<td th:utext="'&lt;i class=&quot;fa fa-rupee&quot;&gt;&lt;/i&gt;' + ${order.totalFare}"></td>
+										<td th:text="${order.status}"></td>
+										
+									</tr>
+									
+									</tbody>
+									</table>
+							
+							<div class="mt-2 p-5 text-center">
+							<table class="table">
+								<!-- <thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">First</th>
+										<th scope="col">Last</th>
+										<th scope="col">Handle</th>
+									</tr>
+								</thead> -->
+								<tbody>
+									<tr>
+										<th scope="row" class="text-left">Order Id:</th>
+										<td class="text-right" th:text="${order.orderId}">Mark</td>
+										<!-- <td>Otto</td>
+										<td>@mdo</td> -->
+									</tr>
+									<tr>
+										<th class="text-left" scope="row">User Name:</th>
+										<td class="text-right" th:text="${order.clientName}"></td>
+									
+									</tr>
+									<tr>
+										<th class="text-left" scope="row">Email Id:</th>
+										<td class="text-right" th:text="${order.user.email}"></td>
+									
+									</tr>
+									<tr>
+										<th class="text-left" scope="row">Vehical Number:</th>
+										<td class="text-right" th:text="${order.vNumber}"></td>
+										<!-- <td>Thornton</td>
+										<td>@fat</td> -->
+									</tr>
+									<tr>
+										<th class="text-left" scope="row">Your slot:</th>
+										<td class="text-right" th:text="${order.slot}"></td>
+									
+									</tr>
+									<!-- <tr>
+										<th class="text-left" scope="row">Booking Duration:</th>
+										<td class="text-right"th:text="${order.duration}+' Hours'"></td>
+										
+									</tr>
+									<tr>
+										<th class="text-left" scope="row">Total Fares:</th>
+										<td class="text-right" th:text="${price+' Rs only'}"></td>
+									
+									</tr> -->
+									<tr>
+										<th class="text-left" scope="row">Payment Mode:</th>
+										<td class="text-right" >Cash</td>
+									
+									</tr>
+									
+								</tbody>
+							</table>
+							
+
+						</div>
+						</div>
+							<div class="container text-center" style="position:absolute; margin-top:580px">
+							<img th:src="@{/img/booked.png}" width="200px" alt="" />
+							</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section> 
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    Include your Bootstrap and CSS links here
+    <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" th:href="@{/css/mycss.css}">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Your Bookings</h1>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-deck">
+                    <div th:each="booking : ${userBookings}" class="card mb-4">
+                        <div class="card-header">
+                            <h5 th:text="${#temporals.format(booking.date, 'dd MMM yyyy')}"></h5>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title" th:text="${#temporals.format(booking.timeSlot.time, 'HH:mm')}"></h6>
+                            <p class="card-text" th:text="${booking.doctor.name}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+ -->
+ 
+ <!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" th:replace="~{normal/base::layout(~{::title},~{::section} )}">
+<head>
+<title></title>
+    <!-- Include your Bootstrap and CSS links here -->
+    
+</head>
+<body>
+<section>
+<div class="mt-0"><h1 class="text-center d-flex justify-content-center align-items-center text-white" style="background:teal;height:20vh">Your Bookings</h1></div>
+    <div class="container mt-5">
+        
+        
+        <div class="row">
+            <div class="col-md-6" style="line-height:2px" th:each="booking : ${userBookings}">
+                <div class="card-deck">
+                    <div  class="card mb-4" >
+                        <div class="row no-gutters">
+                            <div class="col-md-3 bg-success">
+                                <div class="card-body">
+                                    <h5 class="card-title " th:text="${#temporals.format(booking.date, 'dd MMM yyyy')}"></h5>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h3 class="card-title text-right" style="line-height:20px" th:text="${#temporals.format(booking.timeSlot.time, 'HH:mm')}"></h3>
+                                    <h5 class="card-text text-right" style="line-height:16px" th:text="${booking.doctor.name}"></h5>
+                                    <h6 class="card-text text-right"  style="line-height:4px" th:text="${booking.doctor.specialty}"></h6>
+                                </div>
+                                <div class="text-right alert-danger" th:if="${booking.canceled}">
+                                    <h6>Sorry your booking has been canceled..!!!</h6>
+                                </div>
+                                <div class="text-right" th:unless="${booking.canceled}">
+                                    <a class="btn btn-danger" th:href="@{'/user/cancel-booking/'+${booking.id}}">Cancel</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+</body>
+</html>
+ 

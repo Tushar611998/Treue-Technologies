@@ -1,0 +1,61 @@
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    Include your Bootstrap and CSS links here
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Appointments for <span th:text="${#temporals.format(selectedDate, 'dd MMMM yyyy')}"></span></h1>
+        
+        <div class="row" >
+       
+            <div th:each="slotAvailability : ${slotAvailabilityMap}" style="border: 2px solid black" class="col-md-3 mb-3">
+                <div class="card ">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${#temporals.format(slotAvailability.key, 'hh:mm a')}"></h5>
+                        <p th:if="${slotAvailability.value}">Booked</p>
+                        <p th:unless="${slotAvailability.value}">Available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+ -->
+<!-- th:text="${timeSlot.time.format(#temporalFormatter('h:mm a'))}" -->
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" th:replace="~{normal/base::layout(~{::title},~{::section} )}">
+<head>
+<title>Appointment slots</title>
+    <!-- Include your Bootstrap and CSS links here -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+</head>
+<body>
+<section>
+<div style="height:20vh; background:teal; color:white" class="d-flex justify-content-center align-items-center" ><h1 class="text-center  mb-4">Appointments for <span th:text="${#temporals.format(selectedDate, 'dd MMMM yyyy')}"></span></h1></div>
+    <div class="container mt-5">
+        
+        
+        <div class="row">
+            <div th:each="slotAvailability : ${slotAvailabilityMap}" class="col-md-3 mb-3">
+                <a th:classappend="${slotAvailability.value ? 'disabled-day alert-danger disabled' : 'bg-success'}"
+                   th:href="@{/user/book-slot/{date}/{time}/{doctorId}(date=${selectedDate}, time=${#temporals.format(slotAvailability.key, 'HHmm')}, doctorId=${doctorId})}">
+                    <div class="card slot-card" th:classappend="${slotAvailability.value ? 'booked' : ''}">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${#temporals.format(slotAvailability.key, 'hh:mm a')}"></h5>
+                            <p th:if="${slotAvailability.value}" >Booked</p>
+                            <p th:unless="${slotAvailability.value}">Available</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    </section>
+</body>
+</html>

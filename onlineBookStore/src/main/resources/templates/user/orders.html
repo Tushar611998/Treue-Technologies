@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org"
+	th:replace="~{user/base::layout(~{::title},~{::section})}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>orders</title>
+<!-- Include Bootstrap CSS -->
+
+</head>
+<body>
+	<section >
+		<div class="container mt-4 ">
+			<div class="jumbotron text-center banner text-white">
+				<h1 th:text="${history}"></h1>
+			
+				
+			</div>
+
+		</div>
+			<div class="row "  th:each="order : ${orders}">
+								<div class="col-md-4 ml-5" style="width: 200px">
+									<div class="card  border-0">
+										<div class="card-body ">
+											<div class="mt-2  text-center">
+
+
+												<img th:src="@{'/img/' + ${order.book.image}}" width="100px"
+													alt="book" />
+											</div>
+
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-6 ml-5">
+									<div class="card  ml-5 border-0">
+										<div class="card-body">
+											<div class=" text-center">
+												<table class="table  table1 table-borderless">
+
+													<tbody>
+													
+													
+
+
+														
+														<tr>
+															
+															<td class="text-right" th:text="${order.book.book_name}"></td>
+
+														</tr>
+														<tr>
+															
+															<td class="text-right" th:text="${order.txn_id}"></td>
+
+														</tr>
+
+
+														<tr>
+															
+															<td class="text-right">Cash</td>
+
+														</tr>
+														<tr>
+															
+															<td class="text-right"><i class="fas fa-rupee-sign"
+																style="font-size: 20px" th:text="${order.book.price}"></i></td>
+
+														</tr>
+														<tr>
+															
+															<td class="text-right text-success">Paid</td>
+
+														</tr>
+														<tr>
+															
+															<td class="text-right text-success"><a class="btn btn-success" th:href="@{'/user/receipt/'+${order.id}}">Details</a></td>
+
+														</tr>
+
+													</tbody>
+												</table>
+
+												
+											</div>
+											
+
+										</div>
+										
+									</div>
+									
+								</div>
+								
+								
+
+							</div>
+							
+		
+			<div class="jumbotron text-center">
+				<!--    ... (jumbotron content) ...-->
+			</div>
+		
+	</section>
+
+
+</body>
+</html>

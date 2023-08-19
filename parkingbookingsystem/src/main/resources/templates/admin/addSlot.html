@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	th:replace="~{/admin/adbase::layout(~{::title},~{::section} )}">
+<head>
+<meta charset="UTF-8">
+<title>Pricing Menu</title>
+</head>
+<body>
+	<section>
+	
+	
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 offset-1">
+				<div class="card mt-2">
+				<div class="cardbody price">
+					
+					<span>Price - </span><span  th:text="${slot.price}"></span>
+					<span> <i class="fa fa-rupee" style="font-size:35px;padding:5px"></i>/hr Only</span>
+					<button class="btn btn-success ml-4 p-3 "><a class="text-white" th:href="@{/admin/changePrice}">Change Price</a></button>
+					<br />
+					<span>Total Slots - </span><span  th:text="${count}"></span>
+					<br /><br />
+					
+					<form th:action="@{/admin/slotAdd}"  method="post" th:object="${slots}">
+					<label for="" style="font-size:25px">Slot Name:</label>
+					<pre style="display:inline">   </pre>
+					
+					<input style="" type="text" required name="name" placeholder="enter Slot Name here" />
+					<br />
+					<label for="" style="font-size:25px">Status:</label>
+					<pre style="display:inline">      </pre>
+					<label for="" style="font-size:18px">Available</label>
+					
+					<input type="radio" name="status" value="1" />
+					<label for="" style="font-size:18px">Booked</label>
+					
+					<input style="padding:5px" type="radio" name="status" value="2" />
+					<br />
+					<label for="" style="font-size:25px" >Slot Price:</label>
+					<pre style="display:inline">    </pre>
+					<input style="" type="text" required name="price" placeholder="enter Slot price here" />
+					<br /><br />
+					<button  style="padding:5px;" type="submit" class="btn btn-success  p-3 ">Add Slot</button>
+					</form>
+					<!-- <button style="width:130px;" class="btn btn-success ml-5 p-3 mt-3"><a class="text-white" th:href="@{/admin/addSlot}">Add Slot</a></button> -->
+					
+					</div>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	</section>
+
+</body>
+</html>

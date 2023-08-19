@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org"
+	th:fragment="layout(title,content)">
+<head>
+<meta charset="UTF-8">
+<title th:replace="${title}"></title>
+
+<!-- Bootstrap links for CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" th:href="@{/css/mycss.css}">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<!-- Include Bootstrap JS and jQuery -->
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+<!-- Local CSS File link -->
+
+<link rel="stylesheet" th:href="@{/css/mycss.css}">
+
+
+</head>
+<body>
+
+	<!-- NavBar content -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">HealthZone</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active"><a class="nav-link" th:href="@{/}">Home
+						<span class="sr-only">(current)</span>
+				</a></li>
+				
+				
+				
+				<li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
+
+				<li class="nav-item"><a class="nav-link " th:href="@{/contact-us}">Contact
+						Us</a></li>
+				
+				
+				<li class="nav-item" style="float: right"><a class="nav-link "
+					th:href="@{/adlogin}">Login</a></li>
+					<!-- <li class="nav-item" style="float: right"><a class="nav-link "
+					th:href="@{/adlogin}">USER Login</a></li> -->
+				
+				</li>
+				<li class="nav-item" style="float: right"><a class="nav-link "
+					th:href="@{/register}">Register</a></li>
+				
+			</ul>
+
+		</div>
+	</nav>
+
+	<div th:replace="${content}"></div>
+
+
+</body>
+</html>

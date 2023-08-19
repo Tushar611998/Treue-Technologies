@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	th:replace="~{/admin/adbase::layout(~{::title},~{::section} )}">
+<head>
+<meta charset="UTF-8">
+<title>Pricing Menu</title>
+</head>
+<body>
+	<section>
+	
+	
+	
+	<div class="container">
+	
+	<div class="alert text-center" role="alert"  th:if="${session.message}" th:classappend="${session.message.type}">
+	
+	<p  th:text="${session.message.content}">
+	</p>
+	
+	<th:block th:text="${@closeSession.removeSession()}"></th:block>
+	</div>
+		<div class="row">
+			<div class="col-md-12 offset-1">
+				<div class="card mt-2">
+				<div class="cardbody pb-5 ">
+				
+				<div class="userprice">
+					
+					<span>Price - </span><span  th:text="${slot.price}"></span>
+					<span> <i class="fa fa-rupee" style="font-size:35px;padding:5px"></i>/hr Only</span>
+					<button class="btn btn-success ml-4 p-3 "><a class="text-white" th:href="@{/admin/changePrice}">Change Price</a></button>
+					<br />
+					<span>Total Slots - </span><span  th:text="${count}"></span>
+					
+					<button style="width:130px;margin-left:85px!important" class="btn btn-success  p-3 mt-3"><a class="text-white" th:href="@{/admin/addslot}">Add Slot</a></button>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-3 " style="margin-left:120px">
+							<div class="card mt-5 ">
+								<div class="cardbody car ">
+								
+								<div class="text-center mt-2" style="line-height:1px">
+								<h5>Silver</h5>
+								<h1 class="text-primary">12000  <i class="fa fa-rupee" style="font-size:35px;padding:5px 0px"></i></h1>
+								<p>/month Only</p>
+								</div>
+								
+								</div>
+								<div class="mt-3 text-left ml-0 pb-5">
+								<ul style="font-size:15px">
+								<li>Do not need to book slot everyday </li>
+								<li>Slot available forever</li>
+								<li>At lower price</li>
+								<li>hightech secured slot for you</li>
+								</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card mt-5 ">
+								<div class="cardbody car">
+								
+								<div class="text-center mt-2" style="line-height:1px">
+								<h5>Gold</h5>
+								<h1 style="color:gold">15000  <i class="fa fa-rupee" style="font-size:35px;padding:5px 0px"></i></h1>
+								<p>/month Only</p>
+								</div>
+								
+								</div>
+								<div class="mt-3 text-left ml-0 pb-5">
+								<ul style="font-size:15px">
+								<li>Do not need to book slot everyday </li>
+								<li>Slot available forever</li>
+								<li>Daily dusting service</li>
+								<li>hightech secured slot for you</li>
+								</ul>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-3">
+							<div class="card mt-5 ">
+								<div class="cardbody car">
+								
+								<div class="text-center mt-2" style="line-height:1px">
+								<h5>Platinum</h5>
+								<h1 style="color:green">18000  <i class="fa fa-rupee" style="font-size:35px;padding:5px 0px"></i></h1>
+								<p>/month Only</p>
+								</div>
+								
+								</div>
+								<div class="mt-3 text-left ml-0">
+								<ul style="font-size:15px">
+								<li>Do not need to book slot everyday </li>
+								<li>Slot available forever</li>
+								<li>Daily dusting service</li>
+								<li>Complete vehical washing once a week</li>
+								<li>hightech secured slot for you</li>
+								</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	</section>
+
+</body>
+</html>

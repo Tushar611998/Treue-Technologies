@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org"
+	th:replace="~{base::layout(~{::title},~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Index Page</title>
+
+</head>
+<body>
+
+	<!-- <img style="object-fit: cover; width:100%; height:100vh; color: linear-gardient(to right, rgba(0,0,0,1), rgba(0,0,0,1))" th:src="@{/img/parking-slot.jpg}" alt="parking img" /> -->
+	<section class="banner d-flex justify-content-center align-items-center" style="margin-top: 0; padding: 0">
+
+		<div class="text-center text-white"
+			style="">
+			<h1 style="display:block">Welcome To Health-Zone</h1>
+			<h3>Simplify Your Doctor Appointment Scheduling With Us.</h3>
+			
+			<a th:href="@{/adlogin}" class="btn bg-success mt-3 btn-lg text-white">Get Started</a>
+			
+		</div>
+		
+
+	</section>
+</body>
+</html>

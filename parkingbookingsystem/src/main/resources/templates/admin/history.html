@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	th:replace="~{/admin/adbase::layout(~{::title},~{::section} )}">
+<head>
+<meta charset="UTF-8">
+<title>Pricing Menu</title>
+</head>
+<body>
+	<section>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 offset-1">
+					<div class="card mt-3">
+						<div class="cardbody text-center">
+
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Transaction Id</th>
+										<th scope="col">Booking Date and Time</th>
+										<th scope="col">Booking duration</th>
+										<th scope="col">Total fare</th>
+										<th scope="col">payment status</th>
+										<th scope="col">Slots</th>
+										<th scope="col">Receipts</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="order : ${orders}">
+										<th scope="row" th:text="${order.Transactional_id}"></th>
+										<td th:text="${#temporals.format(order.dateTime, 'yyyy-MM-dd HH:mm:ss')}" ></td>
+										<td th:text="${order.duration+'Hrs'}"></td>
+										<td th:utext="'&lt;i class=&quot;fa fa-rupee&quot;&gt;&lt;/i&gt;' + ${order.totalFare}"></td>
+										<td th:text="${order.status}"></td>
+										<td th:text="${order.slot}"></td>
+										<td ><a th:href="@{'/admin/receipt/'+${order.orderId} }">View</a></td>
+									</tr>
+									
+									</tbody>
+									</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment Scheduling</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add your custom CSS here */
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr); /* 7 days + 1 for time slots */
+            gap: 5px;
+        }
+        .calendar-day {
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Doctor Appointment Scheduling</h1>
+        <div class="calendar">
+            <div></div> <!-- Empty cell for spacing -->
+            <div class="calendar-day">Sun</div>
+            <div class="calendar-day">Mon</div>
+            <div class="calendar-day">Tue</div>
+            <div class="calendar-day">Wed</div>
+            <div class="calendar-day">Thu</div>
+            <div class="calendar-day">Fri</div>
+            <div class="calendar-day">Sat</div>
+            <!-- Generate time slots and calendar days here -->
+            <div class="calendar-day">9:00 AM</div>
+            <div class="calendar-day"></div> <!-- Empty cell for Sun 9:00 AM -->
+            <div class="calendar-day">Booked</div> <!-- Example: Mon 9:00 AM already booked -->
+            <!-- Add more time slots and calendar days as needed -->
+        </div>
+    </div>
+    <!-- Add Bootstrap JS and any other scripts here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

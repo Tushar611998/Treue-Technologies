@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org"
+	th:fragment="layout(title,content)">
+<head>
+<meta charset="UTF-8">
+<title th:replace="${title}"></title>
+
+
+<!-- Local CSS File link -->
+
+<link rel="stylesheet" th:href="@{/css/mycss.css}">
+
+<!-- Bootstrap links for CSS -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+	<!-- NavBar content -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+		<a class="navbar-brand" href="#">EASY-PARK</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item "><a class="nav-link" th:href="@{/}"><i
+						class="fa fa-home" style="font-size: 18px; padding: 5px"></i>Home
+						<span class="sr-only">(current)</span> </a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
+
+				<li class="nav-item"><a class="nav-link "
+					th:href="@{/contact-us}">Contact Us</a></li>
+				<!-- <li class="nav-item" style="float: right"><a class="nav-link "
+					th:href="@{/login}">Login</a></li> -->
+				<li class="nav-item"><i class="fa fa-user-circle-o text-white"
+					style="font-size: 20px; padding-top: 10px"></i><a clas="nav-link"
+					href=""></a></li>
+				<li class="nav-item"><a class="nav-link "
+					th:text="${user.name}"></a></li>
+
+				<!-- <li class="nav-item"><a class="nav-link " th:href="@{/register}">Register</a>
+				</li> -->
+			</ul>
+
+		</div>
+	</nav>
+
+	<!-- sidebar -->
+	<div class="con bg-custom">
+
+		<ul class="sidebarad">
+			<li><a href="" th:href="@{/}"><i class="fa fa-home"
+					style="font-size: 18px; padding: 5px"></i>Home</a></li>
+			<!-- <li><a th:href="@{/admin/allBookings}"><i
+					class="fa fa-address-book" style="font-size: 16px; padding: 5px"></i>Show
+					Bookings</a></li> -->
+			<li><a th:href="@{/user/bookSlot}"><i
+					class="fa fa-plus-square" style="font-size: 16px; padding: 5px"></i>Book
+					Slot</a></li>
+			<li><a th:href="@{/user/pricing}"><i class="fa fa-rupee"
+					style="font-size: 16px; padding: 5px"></i>Pricing</a></li>
+			<li><a th:href="@{/user/history}"><i class="fa fa-file"
+					style="font-size: 18px; padding: 5px"></i>History</a></li>
+			<li><a th:href="@{/logout}"><i class="fa fa-user-times"
+					style="font-size: 18px; padding: 5px"></i>Logout</a></li>
+		</ul>
+
+	</div>
+
+
+	<div th:replace="${content}"></div>
+
+
+</body>
+</html>
